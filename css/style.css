@@ -1,0 +1,37 @@
+body {
+    background-color:#999999;
+}
+
+h1 {
+    text-align: center;
+}
+
+.wrapper {
+    height: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.switch {
+    width: 480px;
+    height: auto;
+    text-align: left;
+    margin-left: 16px;
+}
+
+.view {
+    width: 540px;
+    margin-left: 16px;
+}
+
+#p5Canvas1 {
+    width: 50px;
+    margin-top: 16px;
+    margin-right: 8px;
+}
+
+.title_wrapper {
+    display: flex;
+    justify-content: center;
+}

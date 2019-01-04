@@ -4,32 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.js"></script>
+    <script src="js/sketch.js"></script>
     <title>test_app</title>
 </head>
 
 <body>
+    <div class="title_wrapper">
+        <div id="p5Canvas1">
+        </div>
+        <div class="title">
+            <h1>custom map style switch</h1>
+        </div>
+</div>
 
-<div id="myMap" style='position:relative;width:100%;height:98%;'></div>
 
-<!-- [ Pushpin Object ] https://msdn.microsoft.com/en-us/library/mt712673.aspx -->
+    
+<div class="wrapper">
+    <div class="switch">
+        <h2>style変更</h2>
+        <input type="button" onclick="map.setOptions({ customMapStyle: {} })" value="スタイルをクリア" />
+        <br><br>
+        <input type="button" onclick="map.setOptions({ customMapStyle: sampleStyle })" value="Custom Style 1"/>
+        <input type="button" onclick="map.setOptions({ customMapStyle: sampleStyle2 })" value="Custom Style 2" />
+        <input type="button" onclick="map.setOptions({ customMapStyle: sampleStyle3 })" value="Custom Style 3" />
+        <input type="button" onclick="map.setOptions({ customMapStyle: midnightCommander })" value="Midnight Commander" />
+        <input type="button" onclick="map.setOptions({ customMapStyle: countriesOnly })" value="Countries Only" />
+        <input type="button" onclick="map.setOptions({ customMapStyle: fadedMap })" value="Faded Map" />
+        <input type="button" onclick="map.setOptions({ customMapStyle: airport_style })" value="空港をパープルで表示" />
+        
+        <h3>ユニバーサルカラースタイル</h3>
+        <input type="button" onclick="map.setOptions({ customMapStyle: cud1 })" value="cud1" />
+        <input type="button" onclick="map.setOptions({ customMapStyle: cud2 })" value="cud2" />
+
+        <h2>その他</h2>
+        <input type="button" onclick="map.setOptions({ showMapTypeSelector: true })" value="マップタイプセレクターをON" />
+        <input type="button" onclick="map.setOptions({ showMapTypeSelector: false })" value="マップタイプセレクターをOFF" />
+        <input type="button" onclick="map.setOptions({ showLocateMeButton: true })" value="現在地ボタンON" />
+        <input type="button" onclick="map.setOptions({ showLocateMeButton: false })" value="現在地ボタンOFF" />
+        <input type="button" onclick="map.setOptions({ showZoomButtons: true })" value="ズームON" />
+        <input type="button" onclick="map.setOptions({ showZoomButtons: false })" value="ズームOFF" />
+        <input type="button" onclick="map.setOptions({ showDashboard: true })" value="ダッシュボードON" />
+        <input type="button" onclick="map.setOptions({ showDashboard: false })" value="ダッシュボードOFF" />
+        
+    </div>
+
+    <div class="view">
+        <div id="myMap" style='width:540px;height:500px;'></div>
+    </div>
+
+</div>
+
 <script src='https://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=AiUzRbRMbJrPb7GvMWyitMpNiCI8fhYg9_FJL6kgGpJuQNzLMkL1NeeVczYH7TEx' async defer></script>
-<script src="bmap.js"></script>
+<script src="js/bmap.js"></script>
 <script>
-let map; //mapObject[mapはGlobalに置いたほうが便利に使い回せそうなので現時点ではそうしてます]
+let map;
+
+
+
 function GetMap() {
-    map = mapStart("#myMap", 47.6149, -122.1941, "aerial", 15); //Initialization processing
-    mapPushpin(map, 47.6149, -122.1941, "#00FF00"); //pushpin
-    mapInfobox(map, 47.6149, -122.1941, "Title", "Start"); //infobo
+    map = mapStart("#myMap", 47.640583, -122.132487, "canvasLight", 14); //Initialization processing
+    mapPushpin(map, 47.640583, -122.132487, "#00FF00"); //pushpin
+    // mapInfobox(map, 47.6149, -122.1941, "Title", "Start"); //infobo
 }
 
-setTimeout(function () {
-        mapChangeView(map,  47.6150, -122.1950, "load", 18);
-        mapPushpin(map, 47.6150, -122.1950, "#ffff00", true,true,true,true);
-        mapInfobox(map, 47.6150, -122.1950  , "BBB", "End");
-    },3000);
+// setTimeout(function () {
+//         mapChangeView(map,  47.6150, -122.1950, "load", 18);
+//         mapPushpin(map, 47.6150, -122.1950, "#ffff00", true,true,true,true);
+//         mapInfobox(map, 47.6150, -122.1950  , "BBB", "End");
+//     },3000);
 </script>
-
-</body>
 
 </body>
 </html>
